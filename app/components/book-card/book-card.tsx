@@ -1,5 +1,8 @@
+"use client"
+
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -8,6 +11,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
+import Rating from '@mui/material/Rating';
+import {useState} from 'react';
 interface Book {
   id: string;
   isbn: string;
@@ -23,20 +28,9 @@ interface BookCardProps {
 }
 
 const BookCard: FC<BookCardProps> = ({ book }) => {
-  const renderStars = (stars: number) => {
-    return Array.from({ length: 5 }).map((_, index) => (
-      <StarBorderIcon
-        key={index}
-        sx={{
-          color: index < stars ? 'warning.main' : 'action.disabled',
-          fontSize: '15px'
-        }}
-      >
-        star
-      </StarBorderIcon>
-    ));
-  };
-
+  const [stars, setStars] = useState(book.stars);
+ 
+   
   return (
     <Card sx={{ minWidth: 275, maxWidth: 345, m: 2 }}>
       <Grid container spacing={2}  xs={12}>
@@ -75,7 +69,16 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
               sx={{ objectFit: 'contain',maxHeight: 200 }}
             />
             <CardActions sx={{ color: 'text.warning', p: 0,m:0 }}>
-              {renderStars(book.stars)}
+              <Rating
+        name="simple-controlled"
+         size="small"
+        precision={0.5}
+        value={stars}
+        onChange={(event, newValue) => {
+          setStars(newValue);
+        }}
+      />
+      
             </CardActions>
             
           <CardActions sx={{display:'flex',  justifyContent: "end",
