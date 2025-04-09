@@ -1,11 +1,13 @@
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import StarIcon from '@mui/material/Icon';
+import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
-
 interface Book {
   id: string;
   isbn: string;
@@ -23,47 +25,68 @@ interface BookCardProps {
 const BookCard: FC<BookCardProps> = ({ book }) => {
   const renderStars = (stars: number) => {
     return Array.from({ length: 5 }).map((_, index) => (
-      <StarIcon
+      <StarBorderIcon
         key={index}
         sx={{
           color: index < stars ? 'warning.main' : 'action.disabled',
-          fontSize: '20px'
+          fontSize: '15px'
         }}
       >
         star
-      </StarIcon>
+      </StarBorderIcon>
     ));
   };
 
   return (
     <Card sx={{ minWidth: 275, maxWidth: 345, m: 2 }}>
-      <CardContent>
-        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-          {book.authors}
-        </Typography>
+      <Grid container spacing={2}  xs={12}>
+          <Grid size={{ xs: 12, md: 8 }}>
+            <CardContent>
+                      
+              <Typography variant="h6" component="div">
+                {book.title}
+              </Typography>
+              <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+                
+                {book.authors}
+              </Typography>
 
-        <Typography variant="h5" component="div">
-          {book.title}
-        </Typography>
 
-        <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-          {book.publisher}
-        </Typography>
+              <Typography sx={{ color: 'text.secondary', fontSize:12   }}>
+        Publisher:       {book.publisher}
+              </Typography>
+                      <Typography sx={{ color: 'text.secondary', mb: 1.5, fontSize:12   }}>
+        ISBN:       {book.isbn}
+              </Typography>
 
-        <Typography variant="body2">
-          {book.resume}
-        </Typography>
-      </CardContent>
+              <Typography variant="body2">
+                {book.resume}
+              </Typography>
+            </CardContent>
+          </Grid>
 
-      <CardActions sx={{ color: 'text.warning', mb: 1.5 }}>
-        {renderStars(book.stars)}
-      </CardActions>
+          <Grid size={{ xs: 12, md: 4, }}>
+           
+            <CardMedia
+            component="img"
+               height="10"
+              image="/book-example.png"
+              alt={`${book.title} cover`}
+              sx={{ objectFit: 'contain',maxHeight: 200 }}
+            />
+            <CardActions sx={{ color: 'text.warning', p: 0,m:0 }}>
+              {renderStars(book.stars)}
+            </CardActions>
             
-      <CardActions>
-        <Button size="small" variant="contained" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+          <CardActions sx={{display:'flex',  justifyContent: "end",
+    alignItems: "end", }}>
+            
+          <RateReviewIcon color='primary'/>
+      
+            </CardActions>
+          </Grid>
+        </Grid>
+    
     </Card>
   );
 };
