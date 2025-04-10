@@ -1,18 +1,12 @@
 "use client"
 
-import RateReviewIcon from '@mui/icons-material/RateReview';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { FC } from 'react';
+import { CardActions } from '@mui/material';
+import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import {useState} from 'react';
+import Typography from '@mui/material/Typography';
+import picture from "public/picture.png";
+import { FC, useState } from 'react';
+import BookCover from '../book-cover/book-cover';
 interface Book {
   id: string;
   isbn: string;
@@ -21,7 +15,7 @@ interface Book {
   resume: string;
   stars: number;
   publisher: string;
-}
+}  
 
 interface BookCardProps {
   book: Book;
@@ -29,68 +23,34 @@ interface BookCardProps {
 
 const BookCard: FC<BookCardProps> = ({ book }) => {
   const [stars, setStars] = useState(book.stars);
- 
+
    
   return (
-    <Card sx={{ minWidth: 275, maxWidth: 345, m: 2 }}>
-      <Grid container spacing={2}  xs={12}>
-          <Grid size={{ xs: 12, md: 8 }}>
-            <CardContent>
-                      
-              <Typography variant="h6" component="div">
-                {book.title}
-              </Typography>
-              <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-                
-                {book.authors}
-              </Typography>
+    <Box sx={{backgroundColor:'transparent', border:'none', shadow:0}}>
+          <Box sx={{ display:'flex',flexDirection:'column',
+        alignItems: 'center', justifyContent:'center', width: 200,  }}>
+        <BookCover image={picture} stars={stars} setStars={setStars} alt={book.title} />
+        
+            <Typography variant="title-md" component="div" >
+                          {book.title}</Typography>
+                        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+                          
+                          {book.authors}
+        </Typography>
 
-
-              <Typography sx={{ color: 'text.secondary', fontSize:12   }}>
-        Publisher:       {book.publisher}
-              </Typography>
-                      <Typography sx={{ color: 'text.secondary', mb: 1.5, fontSize:12   }}>
-        ISBN:       {book.isbn}
-              </Typography>
-
-              <Typography variant="body2">
-                {book.resume}
-              </Typography>
-            </CardContent>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 4, }}>
-           
-            <CardMedia
-            component="img"
-               height="10"
-              image="/book-example.png"
-              alt={`${book.title} cover`}
-              sx={{ objectFit: 'contain',maxHeight: 200 }}
-            />
-            <CardActions sx={{ color: 'text.warning', p: 0,m:0 }}>
-              <Rating
-        name="simple-controlled"
-         size="small"
-        precision={0.5}
-        value={stars}
-        onChange={(event, newValue) => {
-          setStars(newValue);
-        }}
-      />
-      
-            </CardActions>
-            
-          <CardActions sx={{display:'flex',  justifyContent: "end",
-    alignItems: "end", }}>
-            
-          <RateReviewIcon color='primary'/>
-      
-            </CardActions>
-          </Grid>
-        </Grid>
-    
-    </Card>
+           <CardActions sx={{ color: 'text.warning', p: 0,m:0 }}>
+                      <Rating
+                name="simple-controlled"
+                 size="small"
+                precision={0.5}
+                value={stars}
+                onChange={(event, newValue) => {
+                  setStars(newValue);
+                }}
+          />
+           </CardActions>
+          </Box>
+    </Box>
   );
 };
 
