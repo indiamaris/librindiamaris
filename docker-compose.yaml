@@ -1,8 +1,12 @@
 services:
-  web:
+  librindia:
     build: .
     ports:
       - "3000:3000"
+    volumes:
+      - type: bind
+        source: .
+        target: /app
     depends_on:
       - db
   db:

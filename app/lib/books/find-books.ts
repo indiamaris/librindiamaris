@@ -1,6 +1,6 @@
-import { prisma } from '../../../prisma/client';
+import { prisma } from "../../../prisma/client";
 
 export const findBooks = async () => {
-    const books = await prisma.books.findMany();
-    return books;
+  const books = await prisma.books.findMany();
+  return books;
 };

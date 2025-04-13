@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./app.css";
 
-
 export const metadata: Metadata = {
   title: "Librindiamaris App",
   description: "a simple app to manage your books",
-}
+};
 
 export default function RootLayout({
   children,
@@ -14,10 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
