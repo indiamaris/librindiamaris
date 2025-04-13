@@ -1,0 +1,35 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: postgres:17
+    ports:
+      - "5439:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=librindia-dev
+
+  dbgate:
+    image: dbgate/dbgate
+    restart: always
+    ports:
+      - 4009:3000
+    volumes:
+      - dbgate-data:/root/.dbgate
+    environment:
+      CONNECTIONS: con1
+
+      LABEL_con1: librindia-dev
+      SERVER_con1: db
+      USER_con1: postgres
+      PASSWORD_con1: password
+      PORT_con1: 5439
+      ENGINE_con1: postgres@dbgate-plugin-postgres
+
+volumes:
+  dbgate-data:
+    driver: local
