@@ -1,27 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import "tailwindcss";
 
+
+.fleur-de-leah-regular {
+    font-family: "Fleur De Leah", cursive; /* Remains the same */
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poiret-one-regular {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 :root {
-  --background: #F4F8D3;
-  --foreground: #171717;
-  --title:#F7CFD8;
-  --subtitle:#A6D6D6;
-  --deep-purple:#A6D6D6;
+    --background: #F4F8D3;
+    --foreground: #171717;
+    --pinkApp: #F7CFD8;
+    --subtitle: #A6D6D6;
+    --deep-purple: #A6D6D6;
+    --fleur: "Fleur De Leah", cursive;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-pinkApp: var(--pinkApp);
+    --color-subtitle: var(--subtitle);
+    --color-deep-purple: var(--deep-purple);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #a6d5d4;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #A6D6D6;
+        --foreground: #ededed;
+
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    --secondary: #F7CFD8;
+    background: var(--background);
+    color: var(--foreground);
+    /*font-family: "Fleur De Leah", cursive;*/
+}
+
+.headerMain {
+    font-family: "Fleur De Leah", cursive;
+    font-size: 5.5rem;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--foreground);
 }

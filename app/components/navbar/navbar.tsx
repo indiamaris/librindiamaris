@@ -11,40 +11,65 @@ import SearchIcon from "@mui/icons-material/Search";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import RoofingIcon from "@mui/icons-material/Roofing";
+import OtherHousesOutlinedIcon from "@mui/icons-material/OtherHousesOutlined";
+import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
 import Grid from "@mui/material/Grid";
 import NavItem from "./nav-item";
-
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
+import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
 const Navbar: () => React.JSX.Elemen = (): Element => {
   const handleClick: void = console.log("clicked");
   const paths = [
     {
       path: "home",
-      icon: <HomeFilledIcon />,
+      icon: <CottageOutlinedIcon fontSize="large" />,
     },
     {
       path: "books",
-      icon: <LocalLibraryIcon />,
+      icon: <BookmarkBorderIcon fontSize="large" />,
     },
     {
       path: "favorites",
-      icon: <FavoriteIcon />,
+      icon: <FavoriteBorderOutlinedIcon fontSize="large" />,
     },
     {
+      path: "tips",
+      icon: <TipsAndUpdatesOutlinedIcon fontSize="large" />,
+    },
+    {
+      path: "quotes",
+      icon: <FormatQuoteOutlinedIcon fontSize="large" />,
+    },
+  ];
+
+  const footerMenu = [
+    {
       path: "settings",
-      icon: <SettingsIcon />,
+      icon: <SettingsIcon fontSize="large" />,
     },
     {
       path: "logout",
-      icon: <PowerSettingsNewIcon />,
+      icon: <PowerSettingsNewIcon fontSize="large" />,
+    },
+    {
+      path: "theme",
+      icon: <LightModeIcon fontSize="large" />,
     },
   ];
   return (
     <Grid
       data-testid="composition-menu"
-      container
-      spacing={2}
-      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-      columns={1}
+      gap={5}
+      sx={{
+        height: "auto",
+        width: "60px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       {paths.map((path) => (
         <NavItem key={path.path} icon={path.icon} path={path.path} />

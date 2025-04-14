@@ -46,13 +46,14 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
           data-testid={"book-title"}
           variant="title-md"
           component="div"
+          sx={{ color: "purple" }}
         >
           {book.title}
         </Typography>
         <Typography
           data-testid={"book-authors"}
           gutterBottom
-          sx={{ color: "text.secondary", fontSize: 14 }}
+          sx={{ color: "dimgrey", fontSize: 14 }}
         >
           {book.authors}
         </Typography>
