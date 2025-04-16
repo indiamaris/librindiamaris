@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import "tailwindcss";
 
 
@@ -35,8 +36,9 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #A6D6D6;
+        --background: #F7CFD8;
         --foreground: #ededed;
+        --pinkApp: #F7CFD8;
 
     }
 }
@@ -45,13 +47,45 @@ body {
     --secondary: #F7CFD8;
     background: var(--background);
     color: var(--foreground);
+
     /*font-family: "Fleur De Leah", cursive;*/
 }
+.simpleContainer {
+    max-width: 75%;
+    margin: 0 auto;
+
+    background-color: var(--pinkApp)
+}
+
 
 .headerMain {
-    font-family: "Fleur De Leah", cursive;
-    font-size: 5.5rem;
+    font-family: "Poiret One", cursive;
+    font-size: 10.5rem;
     font-weight: 400;
     font-style: normal;
-    color: var(--foreground);
+    color: #8E7DBE;
 }
+
+.subHeaderMain {
+    font-family: "Poiret One", cursive;
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-style: normal;
+    text-align: end;
+    color: #8E7DBE;
+}
+
+    .footerMain {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 11px;
+        color: slategrey;
+    }
+
+    .navbar{
+        color: #8E7DBE;
+    }
+
+/*https://colorhunt.co/palette/f7cfd8f4f8d3a6d6d68e7dbe*/

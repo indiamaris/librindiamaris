@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <Grid>
       <div className={"headerMain"}>Happy Reading!</div>
-      <div>livro do dia</div>
+      <div className={"subHeaderMain"}>
+        I never loved to read. One does not love breathing.
+      </div>
     </Grid>
   );
 }

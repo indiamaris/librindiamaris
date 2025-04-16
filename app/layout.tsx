@@ -51,7 +51,7 @@ export default function RootLayout({
             }}
           >
             <Container
-              className={"fleurDeLeah.className"}
+              className={"simpleContainer"}
               sx={{
                 flexGrow: 1,
                 // backgroundColor: "pink",
@@ -62,6 +62,7 @@ export default function RootLayout({
               {" "}
               <main className="p-5">{children}</main>
             </Container>{" "}
+            <footer className={"footerMain"}>©india v-1.0</footer>
           </Grid>
         </Stack>
       </body>

@@ -19,28 +19,31 @@ import NavItem from "./nav-item";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 const Navbar: () => React.JSX.Elemen = (): Element => {
   const handleClick: void = console.log("clicked");
   const paths = [
     {
-      path: "home",
+      path: "/",
       icon: <CottageOutlinedIcon fontSize="large" />,
     },
     {
-      path: "books",
-      icon: <BookmarkBorderIcon fontSize="large" />,
+      path: "/pages/books",
+      icon: <AutoStoriesIcon fontSize="large" />,
     },
     {
-      path: "favorites",
+      path: "pages/quotes",
+      icon: <FormatQuoteOutlinedIcon fontSize="large" />,
+    },
+    {
+      path: "pages/favoritesBooks",
       icon: <FavoriteBorderOutlinedIcon fontSize="large" />,
     },
+
     {
-      path: "tips",
+      path: "pages/tips",
       icon: <TipsAndUpdatesOutlinedIcon fontSize="large" />,
-    },
-    {
-      path: "quotes",
-      icon: <FormatQuoteOutlinedIcon fontSize="large" />,
     },
   ];
 
