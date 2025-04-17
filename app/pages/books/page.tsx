@@ -8,12 +8,6 @@ const BookAddPage = async () => {
   const books = await findBooks();
   return (
     <Grid p={4}>
-      <Box sx={{ display: "flex", justifyContent: "end" }}>
-        <Button variant="text" variant="contained">
-          {" "}
-          Add new book
-        </Button>
-      </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }} gap={4}>
         {books.map((book: any) => (
           <BookCard book={book} />

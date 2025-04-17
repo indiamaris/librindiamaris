@@ -17,4 +17,5 @@ model Books {
    resume String
    stars Int
    publisher String
+  category String
 }

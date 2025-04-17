@@ -4,9 +4,9 @@ import { CardActions } from "@mui/material";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
+import picture from "public/picture.png";
 import { FC, useState } from "react";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Divider from "@mui/material/Divider";
+import BookCover from "../book-cover/book-cover";
 interface Book {
   id: string;
   isbn: string;
@@ -25,41 +25,37 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
   const [stars, setStars] = useState(book.stars);
 
   return (
-    <Box
-      sx={{
-        backgroundColor: "white",
-        border: "none",
-        borderRadius: "10px",
-        shadow: 2,
-      }}
-    >
+    <Box sx={{ backgroundColor: "transparent", border: "none", shadow: 0 }}>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "start",
-          justifyContent: "start",
+          alignItems: "center",
+          justifyContent: "center",
           width: 200,
-          color: "white",
-          padding: "1rem",
         }}
       >
+        <BookCover
+          image={picture}
+          stars={stars}
+          setStars={setStars}
+          alt={book.title}
+        />
+
         <Typography
           data-testid={"book-title"}
-          component="span"
-          className={"headerBook"}
-          sx={{ pb: "2px" }}
+          variant="title-md"
+          component="div"
+          sx={{ color: "purple" }}
         >
           {book.title}
         </Typography>
-
         <Typography
-          className={"headerBook"}
           data-testid={"book-authors"}
           gutterBottom
           sx={{ color: "dimgrey", fontSize: 14 }}
         >
-          by {book.authors}
+          {book.authors}
         </Typography>
 
         <CardActions sx={{ color: "text.warning", p: 0, m: 0 }}>
@@ -74,15 +70,6 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
             }}
           />
         </CardActions>
-
-        <Typography
-          data-testid={"book-authors"}
-          gutterBottom
-          sx={{ color: "dimgrey", fontSize: 14 }}
-        >
-          {book.resume.slice(0, 200)}
-        </Typography>
-        <MoreHorizIcon color="secondary" sx={{ alignSelf: "end" }} />
       </Box>
     </Box>
   );

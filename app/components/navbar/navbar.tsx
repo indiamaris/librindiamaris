@@ -19,8 +19,12 @@ import NavItem from "./nav-item";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+
+import AddIcon from "@mui/icons-material/Add";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 const Navbar: () => React.JSX.Elemen = (): Element => {
   const handleClick: void = console.log("clicked");
   const paths = [
@@ -29,21 +33,21 @@ const Navbar: () => React.JSX.Elemen = (): Element => {
       icon: <CottageOutlinedIcon fontSize="large" />,
     },
     {
-      path: "/pages/books",
-      icon: <AutoStoriesIcon fontSize="large" />,
-    },
-    {
-      path: "pages/quotes",
-      icon: <FormatQuoteOutlinedIcon fontSize="large" />,
-    },
-    {
-      path: "pages/favoritesBooks",
+      path: "/pages/favoritesBooks",
       icon: <FavoriteBorderOutlinedIcon fontSize="large" />,
+    },
+    {
+      path: "/pages/books",
+      icon: <ImportContactsIcon fontSize="large" />,
+    },
+    {
+      path: "/pages/quotes",
+      icon: <FormatQuoteOutlinedIcon fontSize="large" />,
     },
 
     {
-      path: "pages/tips",
-      icon: <TipsAndUpdatesOutlinedIcon fontSize="large" />,
+      path: "/pages/addBook",
+      icon: <AddCircleOutlineIcon fontSize="large" />,
     },
   ];
 
