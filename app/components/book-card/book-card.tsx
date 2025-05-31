@@ -6,7 +6,10 @@ import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import { FC, useState } from "react";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Divider from "@mui/material/Divider";
+import ReadMoreIcon from "@mui/icons-material/ReadMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 interface Book {
   id: string;
   isbn: string;
@@ -39,20 +42,33 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
           flexDirection: "column",
           alignItems: "start",
           justifyContent: "start",
-          width: 200,
+          width: 220,
           color: "white",
           padding: "1rem",
         }}
       >
-        <Typography
-          data-testid={"book-title"}
-          component="span"
-          className={"headerBook"}
-          sx={{ pb: "2px" }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            pb: "2px",
+            width: "100%",
+          }}
         >
-          {book.title}
-        </Typography>
-
+          {" "}
+          <Box>
+            <Typography
+              data-testid={"book-title"}
+              component="div"
+              className={"headerBook"}
+            >
+              {book.title}{" "}
+            </Typography>{" "}
+          </Box>
+          <Box>
+            <MoreVertIcon color="secondary" sx={{ alignSelf: "end" }} />
+          </Box>
+        </Box>
         <Typography
           className={"headerBook"}
           data-testid={"book-authors"}
@@ -82,7 +98,6 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
         >
           {book.resume.slice(0, 200)}
         </Typography>
-        <MoreHorizIcon color="secondary" sx={{ alignSelf: "end" }} />
       </Box>
     </Box>
   );
